@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% load bootstrap_tags %}
+
+
+{% block pagetitle %}Registration Page{% endblock %}
+{% block pageheading %}User Registration{% endblock %}
+
+{% block content %}
+
+    
+    <div class="card border-0 shadow-lg">
+      <div class="card-body">
+        <!-- Nested Row within Card Body -->
+        <div class="row">
+          <div class="col-12 bg-register-image"></div>
+          <div class="col-12">
+            <div class="">
+              <div class="text-center">
+                <h1 class="h4 text-gray-900">Create an Account!</h1>
+              </div>
+              <form method="POST" class="user">
+              {% csrf_token %}
+                <div class="form-group row">
+                  <div class="col-12">
+              {{ registration_form | as_bootstrap }}
+                  </div>
+                </div>
+                
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg">Register Account</button>
+                
+                <hr>
+     
+              </form>
+              <hr>
+              <div class="text-center">
+                <a class="small" href="forgot-password.html">Forgot Password?</a>
+              </div>
+              <div class="text-center">
+                <a class="small" href="{% url 'login' %}">Already have an account? Login!</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+{% endblock %}

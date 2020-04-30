@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block page_title %}HOMEpage{% endblock %}
+
+
+
+{% block page_heading %}
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-3">Auth Login Web App</h1>
+            <p class="lead">Bootstrap4 python Django</p>
+            <hr class="my-2">
+            <p>Register NOW!</p>
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="{% url 'registration' %}" role="button">Sign Up</a>
+            </p>
+        </div>
+    </div>
+
+{% endblock %}
+
