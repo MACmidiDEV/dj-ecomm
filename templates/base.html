@@ -14,6 +14,10 @@
 
     <!-- Custom fonts for this template-->
 
+
+    <!-- Custom styles for this template-->
+    <link href="{% static 'css/styles.css' %}" type="text/css">
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
@@ -23,9 +27,8 @@
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
-    <!-- Custom styles for this template-->
-    <link href="{% static 'css/styles.css' %}" type="text/css" rel="stylesheet">
-
+    {% block head_js %}
+    {% endblock head_js %}
 </head>
 
 <body id="page-top">
@@ -43,23 +46,22 @@
 
                 <!-- Topbar -->
                 <nav id="nav" class="navbar navbar-expand navbar-dark bg-dark topbar mb-4 fixed-top shadow">
-
-
-
                     <a class="navbar-brand" href="/">AUTH.login</a>
-
-
-
-
-
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
 
                         <!-- Dropdown - Messages -->
 
+                        <li>
+                            <a href="{% url 'view_cart' %}">
+                                <i class="fas fa-shipping-fast fa-2x fa-fw"></i>
+                                {% if product_count > 0 %}
+                                <label class="badge badge-warning">{{product_count}}</label>
+                                {% endif %}
+                            </a>
+                        </li>
 
-                        
 
                         <div class="topbar-divider d-none d-sm-block"></div>
 
@@ -69,12 +71,10 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {% if user.is_authenticated %}
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ user }}</span>
-                                <img class="img-profile rounded-circle"                                    
-                                src="{% static 'images/logo-60x60.png' %}">
+                                <img class="img-profile rounded-circle" src="https://github.com/MACmidiDEV/dj-ecomm/blob/master/static/images/logo-60x60x.png">
                                 {% else %}
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">AUTH-login</span>
-                                <img class="img-profile rounded-circle"
-                                src="{% static 'images/logo-60x60x.png' %}">
+                                <img class="img-profile rounded-circle" src="https://github.com/MACmidiDEV/dj-ecomm/blob/master/static/images/logo-60x60.png">
                                 {% endif %}
                             </a>
                             <!-- Dropdown - User Information -->
@@ -110,7 +110,6 @@
                         </li>
 
                     </ul>
-
                 </nav>
 
                 <div class="space"></div>
@@ -138,41 +137,45 @@
                     </div>
 
 
-                    <!-- Content Row -->
-                    <div class="row">
-                        
-                    </div>
+                    <div class="container">
+                        <h1>'</h1>
+                        <div class="display">
+                            <form id="q" action="{% url 'search' %}" method="get">
+                                <input type="text" name="q">
+                                <button type="search">Search</button>
+                            </form>
+                        </div>
                         {% block content %}{% endblock %}
+                    </div>
 
 
+
+
+                    <!-- End of Main Content -->
+
+                    <hr>
+                    <!-- End of Footer -->
 
 
                 </div>
-                <!-- End of Main Content -->
-
-                <hr>
-                <!-- End of Footer -->
+                <!-- End of Content Wrapper -->
 
 
             </div>
-            <!-- End of Content Wrapper -->
-
+            <!-- End of Page Wrapper -->
 
         </div>
-        <!-- End of Page Wrapper -->
 
-    </div>
-
-    <!-- Bootstrap core JavaScript-->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-    </script>
+        <!-- Bootstrap core JavaScript-->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+        </script>
 
 
 
